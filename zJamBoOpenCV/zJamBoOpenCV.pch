@@ -1,0 +1,31 @@
+//
+//  zJamBoOpenCV.pch
+//  zJamBoOpenCV
+//
+//  Created by ZhangYaoHua on 2019/9/25.
+//  Copyright © 2019 ZYH. All rights reserved.
+//
+
+#ifndef zJamBoOpenCV_pch
+#define zJamBoOpenCV_pch
+
+#ifdef __cplusplus
+#import <opencv2/opencv.hpp>
+#import <opencv2/videoio/cap_ios.h>
+#import <opencv2/imgproc/types_c.h>
+#import <opencv2/imgcodecs/ios.h>
+
+#endif
+
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+///开源库
+#import <Masonry.h>
+
+#import "zExpandCategory.h"
+#import "UtilsMacros.h"
+
+#endif /* zJamBoOpenCV_pch */

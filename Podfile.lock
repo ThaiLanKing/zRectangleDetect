@@ -1,0 +1,21 @@
+PODS:
+  - Masonry (1.1.0)
+  - OpenCV (4.1.0)
+
+DEPENDENCIES:
+  - Masonry
+  - OpenCV
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Masonry
+  trunk:
+    - OpenCV
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  OpenCV: 52cd4d72ff29e2be83421477aec5447320b7fb19
+
+PODFILE CHECKSUM: 8a8df0ebbf324bd2dae2abecf64c08cbeb8ffb9b
+
+COCOAPODS: 1.8.0

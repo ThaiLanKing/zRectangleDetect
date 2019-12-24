@@ -1,0 +1,2 @@
+# ImageProcessUseOpenCV
+使用OpenCV实时检测票据边缘，并支持截取票据影像

@@ -1,0 +1,941 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65003EF77F457DC3EC0CB2E5 /* libPods-zJamBoOpenCV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 138A4538F84B108251C61170 /* libPods-zJamBoOpenCV.a */; };
+		DA4AA421239F4C2500C66A6A /* zRectangleDetectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA420239F4C2500C66A6A /* zRectangleDetectViewController.m */; };
+		DA4AA424239F4CA000C66A6A /* zRectangleDetectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA423239F4CA000C66A6A /* zRectangleDetectView.m */; };
+		DA4AA42A23A0853F00C66A6A /* zRectangleDetectCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA42923A0853F00C66A6A /* zRectangleDetectCameraView.m */; };
+		DA4AA42D23A0866500C66A6A /* zRectangleDetectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA42C23A0866500C66A6A /* zRectangleDetectHelper.m */; };
+		DA4AA43823A383BE00C66A6A /* zShowScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4AA43723A383BE00C66A6A /* zShowScanResultViewController.m */; };
+		DA76138C233B5EB00057C826 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76138B233B5EB00057C826 /* AppDelegate.m */; };
+		DA76138F233B5EB00057C826 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76138E233B5EB00057C826 /* ViewController.m */; };
+		DA761394233B5EB20057C826 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA761393233B5EB20057C826 /* Assets.xcassets */; };
+		DA76139A233B5EB20057C826 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA761399233B5EB20057C826 /* main.m */; };
+		DA7613A4233B5EB20057C826 /* zJamBoOpenCVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7613A3233B5EB20057C826 /* zJamBoOpenCVTests.m */; };
+		DA7613AF233B5EB20057C826 /* zJamBoOpenCVUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7613AE233B5EB20057C826 /* zJamBoOpenCVUITests.m */; };
+		DA7613C6233C57F80057C826 /* zJamBoCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7613C5233C57F80057C826 /* zJamBoCameraView.m */; };
+		DAF0BCF723B09740007AD6AA /* zRectangleBorderUIParam.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BCF623B09740007AD6AA /* zRectangleBorderUIParam.m */; };
+		DAF0BCFA23B0B51B007AD6AA /* zQuadrilateral.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BCF923B0B51B007AD6AA /* zQuadrilateral.m */; };
+		DAF0BD0323B20B86007AD6AA /* zBorderAdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BD0223B20B86007AD6AA /* zBorderAdjustmentViewController.m */; };
+		DAF0BD0623B20D77007AD6AA /* zBorderAdjustmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BD0523B20D77007AD6AA /* zBorderAdjustmentView.m */; };
+		DAF9520E23405931007CAD9C /* btn_takephotos.png in Resources */ = {isa = PBXBuildFile; fileRef = DAF9520D23405931007CAD9C /* btn_takephotos.png */; };
+		DAF952112340599E007CAD9C /* zJBCameraViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAF952102340599E007CAD9C /* zJBCameraViewController.mm */; };
+		DAF95214234059B1007CAD9C /* zCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF95212234059B1007CAD9C /* zCameraManager.m */; };
+		DAF9521923405D6F007CAD9C /* UILabel+zCustome.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF9521823405D6F007CAD9C /* UILabel+zCustome.m */; };
+		DAF9521D23405D8D007CAD9C /* UIButton+ActionBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF9521B23405D8D007CAD9C /* UIButton+ActionBlock.m */; };
+		DAF952222344DB6C007CAD9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAF952212344DB6C007CAD9C /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA7613A0233B5EB20057C826 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA76137F233B5EB00057C826 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA761386233B5EB00057C826;
+			remoteInfo = zJamBoOpenCV;
+		};
+		DA7613AB233B5EB20057C826 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA76137F233B5EB00057C826 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA761386233B5EB00057C826;
+			remoteInfo = zJamBoOpenCV;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		138A4538F84B108251C61170 /* libPods-zJamBoOpenCV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zJamBoOpenCV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35111FAD8B52FA7FE092F246 /* Pods-zJamBoOpenCV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zJamBoOpenCV.release.xcconfig"; path = "Target Support Files/Pods-zJamBoOpenCV/Pods-zJamBoOpenCV.release.xcconfig"; sourceTree = "<group>"; };
+		5C7C41AE373C7850F3636E74 /* Pods-zJamBoOpenCV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zJamBoOpenCV.debug.xcconfig"; path = "Target Support Files/Pods-zJamBoOpenCV/Pods-zJamBoOpenCV.debug.xcconfig"; sourceTree = "<group>"; };
+		DA4AA41F239F4C2500C66A6A /* zRectangleDetectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zRectangleDetectViewController.h; sourceTree = "<group>"; };
+		DA4AA420239F4C2500C66A6A /* zRectangleDetectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zRectangleDetectViewController.m; sourceTree = "<group>"; };
+		DA4AA422239F4CA000C66A6A /* zRectangleDetectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zRectangleDetectView.h; sourceTree = "<group>"; };
+		DA4AA423239F4CA000C66A6A /* zRectangleDetectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zRectangleDetectView.m; sourceTree = "<group>"; };
+		DA4AA42823A0853F00C66A6A /* zRectangleDetectCameraView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zRectangleDetectCameraView.h; sourceTree = "<group>"; };
+		DA4AA42923A0853F00C66A6A /* zRectangleDetectCameraView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zRectangleDetectCameraView.m; sourceTree = "<group>"; };
+		DA4AA42B23A0866500C66A6A /* zRectangleDetectHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zRectangleDetectHelper.h; sourceTree = "<group>"; };
+		DA4AA42C23A0866500C66A6A /* zRectangleDetectHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zRectangleDetectHelper.m; sourceTree = "<group>"; };
+		DA4AA43623A383BE00C66A6A /* zShowScanResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zShowScanResultViewController.h; sourceTree = "<group>"; };
+		DA4AA43723A383BE00C66A6A /* zShowScanResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zShowScanResultViewController.m; sourceTree = "<group>"; };
+		DA761387233B5EB00057C826 /* zJamBoOpenCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zJamBoOpenCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA76138A233B5EB00057C826 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DA76138B233B5EB00057C826 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DA76138D233B5EB00057C826 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DA76138E233B5EB00057C826 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DA761393233B5EB20057C826 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA761398233B5EB20057C826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA761399233B5EB20057C826 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA76139F233B5EB20057C826 /* zJamBoOpenCVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zJamBoOpenCVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA7613A3233B5EB20057C826 /* zJamBoOpenCVTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zJamBoOpenCVTests.m; sourceTree = "<group>"; };
+		DA7613A5233B5EB20057C826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA7613AA233B5EB20057C826 /* zJamBoOpenCVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zJamBoOpenCVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA7613AE233B5EB20057C826 /* zJamBoOpenCVUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zJamBoOpenCVUITests.m; sourceTree = "<group>"; };
+		DA7613B0233B5EB20057C826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA7613BC233B6B400057C826 /* zJamBoOpenCV.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zJamBoOpenCV.pch; sourceTree = "<group>"; };
+		DA7613C4233C57F80057C826 /* zJamBoCameraView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zJamBoCameraView.h; sourceTree = "<group>"; };
+		DA7613C5233C57F80057C826 /* zJamBoCameraView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zJamBoCameraView.m; sourceTree = "<group>"; };
+		DAF0BCF523B09740007AD6AA /* zRectangleBorderUIParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zRectangleBorderUIParam.h; sourceTree = "<group>"; };
+		DAF0BCF623B09740007AD6AA /* zRectangleBorderUIParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zRectangleBorderUIParam.m; sourceTree = "<group>"; };
+		DAF0BCF823B0B51B007AD6AA /* zQuadrilateral.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zQuadrilateral.h; sourceTree = "<group>"; };
+		DAF0BCF923B0B51B007AD6AA /* zQuadrilateral.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zQuadrilateral.m; sourceTree = "<group>"; };
+		DAF0BD0123B20B86007AD6AA /* zBorderAdjustmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zBorderAdjustmentViewController.h; sourceTree = "<group>"; };
+		DAF0BD0223B20B86007AD6AA /* zBorderAdjustmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zBorderAdjustmentViewController.m; sourceTree = "<group>"; };
+		DAF0BD0423B20D77007AD6AA /* zBorderAdjustmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zBorderAdjustmentView.h; sourceTree = "<group>"; };
+		DAF0BD0523B20D77007AD6AA /* zBorderAdjustmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zBorderAdjustmentView.m; sourceTree = "<group>"; };
+		DAF9520D23405931007CAD9C /* btn_takephotos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_takephotos.png; sourceTree = "<group>"; };
+		DAF9520F2340599E007CAD9C /* zJBCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zJBCameraViewController.h; sourceTree = "<group>"; };
+		DAF952102340599E007CAD9C /* zJBCameraViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = zJBCameraViewController.mm; sourceTree = "<group>"; };
+		DAF95212234059B1007CAD9C /* zCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zCameraManager.m; sourceTree = "<group>"; };
+		DAF95213234059B1007CAD9C /* zCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zCameraManager.h; sourceTree = "<group>"; };
+		DAF9521723405D6F007CAD9C /* UILabel+zCustome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+zCustome.h"; sourceTree = "<group>"; };
+		DAF9521823405D6F007CAD9C /* UILabel+zCustome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+zCustome.m"; sourceTree = "<group>"; };
+		DAF9521B23405D8D007CAD9C /* UIButton+ActionBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ActionBlock.m"; sourceTree = "<group>"; };
+		DAF9521C23405D8D007CAD9C /* UIButton+ActionBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ActionBlock.h"; sourceTree = "<group>"; };
+		DAF9521E23406134007CAD9C /* zExpandCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zExpandCategory.h; sourceTree = "<group>"; };
+		DAF9522023408807007CAD9C /* UtilsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilsMacros.h; sourceTree = "<group>"; };
+		DAF952212344DB6C007CAD9C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA761384233B5EB00057C826 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65003EF77F457DC3EC0CB2E5 /* libPods-zJamBoOpenCV.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA76139C233B5EB20057C826 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA7613A7233B5EB20057C826 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDEC14308F8108158AB574DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				138A4538F84B108251C61170 /* libPods-zJamBoOpenCV.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA4AA419239F45A300C66A6A /* RectangleDetectCamera */ = {
+			isa = PBXGroup;
+			children = (
+				DA4AA41A239F45A300C66A6A /* ViewModel */,
+				DA4AA41B239F45A300C66A6A /* Model */,
+				DA4AA41C239F45A300C66A6A /* View */,
+				DA4AA41D239F45A300C66A6A /* Resource */,
+				DA4AA41E239F45A300C66A6A /* ViewController */,
+			);
+			path = RectangleDetectCamera;
+			sourceTree = "<group>";
+		};
+		DA4AA41A239F45A300C66A6A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DA4AA41B239F45A300C66A6A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA4AA42B23A0866500C66A6A /* zRectangleDetectHelper.h */,
+				DA4AA42C23A0866500C66A6A /* zRectangleDetectHelper.m */,
+				DAF0BCF823B0B51B007AD6AA /* zQuadrilateral.h */,
+				DAF0BCF923B0B51B007AD6AA /* zQuadrilateral.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA4AA41C239F45A300C66A6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA4AA422239F4CA000C66A6A /* zRectangleDetectView.h */,
+				DA4AA423239F4CA000C66A6A /* zRectangleDetectView.m */,
+				DA4AA42823A0853F00C66A6A /* zRectangleDetectCameraView.h */,
+				DA4AA42923A0853F00C66A6A /* zRectangleDetectCameraView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA4AA41D239F45A300C66A6A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA4AA41E239F45A300C66A6A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA4AA41F239F4C2500C66A6A /* zRectangleDetectViewController.h */,
+				DA4AA420239F4C2500C66A6A /* zRectangleDetectViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DA4AA43023A3838400C66A6A /* ShowScanResult */ = {
+			isa = PBXGroup;
+			children = (
+				DA4AA43123A3838400C66A6A /* ViewModel */,
+				DA4AA43223A3838400C66A6A /* Model */,
+				DA4AA43323A3838400C66A6A /* View */,
+				DA4AA43423A3838400C66A6A /* Resource */,
+				DA4AA43523A3838400C66A6A /* ViewController */,
+			);
+			path = ShowScanResult;
+			sourceTree = "<group>";
+		};
+		DA4AA43123A3838400C66A6A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DA4AA43223A3838400C66A6A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA4AA43323A3838400C66A6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA4AA43423A3838400C66A6A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA4AA43523A3838400C66A6A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA4AA43623A383BE00C66A6A /* zShowScanResultViewController.h */,
+				DA4AA43723A383BE00C66A6A /* zShowScanResultViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DA76137E233B5EB00057C826 = {
+			isa = PBXGroup;
+			children = (
+				DA761389233B5EB00057C826 /* zJamBoOpenCV */,
+				DA7613BD233C54F80057C826 /* Modules */,
+				DAF9521F234087F9007CAD9C /* Define */,
+				DAF9521523405CFC007CAD9C /* Category */,
+				DA7613A2233B5EB20057C826 /* zJamBoOpenCVTests */,
+				DA7613AD233B5EB20057C826 /* zJamBoOpenCVUITests */,
+				DA761388233B5EB00057C826 /* Products */,
+				F28A850BD9AD231967C55B99 /* Pods */,
+				BDEC14308F8108158AB574DD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DA761388233B5EB00057C826 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA761387233B5EB00057C826 /* zJamBoOpenCV.app */,
+				DA76139F233B5EB20057C826 /* zJamBoOpenCVTests.xctest */,
+				DA7613AA233B5EB20057C826 /* zJamBoOpenCVUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA761389233B5EB00057C826 /* zJamBoOpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				DA76138A233B5EB00057C826 /* AppDelegate.h */,
+				DA76138B233B5EB00057C826 /* AppDelegate.m */,
+				DA76138D233B5EB00057C826 /* ViewController.h */,
+				DA76138E233B5EB00057C826 /* ViewController.m */,
+				DA761393233B5EB20057C826 /* Assets.xcassets */,
+				DA761398233B5EB20057C826 /* Info.plist */,
+				DA761399233B5EB20057C826 /* main.m */,
+				DA7613BC233B6B400057C826 /* zJamBoOpenCV.pch */,
+				DAF952212344DB6C007CAD9C /* LaunchScreen.storyboard */,
+			);
+			path = zJamBoOpenCV;
+			sourceTree = "<group>";
+		};
+		DA7613A2233B5EB20057C826 /* zJamBoOpenCVTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA7613A3233B5EB20057C826 /* zJamBoOpenCVTests.m */,
+				DA7613A5233B5EB20057C826 /* Info.plist */,
+			);
+			path = zJamBoOpenCVTests;
+			sourceTree = "<group>";
+		};
+		DA7613AD233B5EB20057C826 /* zJamBoOpenCVUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA7613AE233B5EB20057C826 /* zJamBoOpenCVUITests.m */,
+				DA7613B0233B5EB20057C826 /* Info.plist */,
+			);
+			path = zJamBoOpenCVUITests;
+			sourceTree = "<group>";
+		};
+		DA7613BD233C54F80057C826 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DAF0BCFB23B20B5E007AD6AA /* BorderAdjustment */,
+				DA4AA43023A3838400C66A6A /* ShowScanResult */,
+				DA4AA419239F45A300C66A6A /* RectangleDetectCamera */,
+				DA7613BE233C564C0057C826 /* OpenCVCamera */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DA7613BE233C564C0057C826 /* OpenCVCamera */ = {
+			isa = PBXGroup;
+			children = (
+				DA7613BF233C564C0057C826 /* ViewModel */,
+				DA7613C0233C564C0057C826 /* Model */,
+				DA7613C1233C564C0057C826 /* View */,
+				DA7613C2233C564C0057C826 /* Resource */,
+				DA7613C3233C564C0057C826 /* ViewController */,
+			);
+			path = OpenCVCamera;
+			sourceTree = "<group>";
+		};
+		DA7613BF233C564C0057C826 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DA7613C0233C564C0057C826 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA7613C1233C564C0057C826 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA7613C4233C57F80057C826 /* zJamBoCameraView.h */,
+				DA7613C5233C57F80057C826 /* zJamBoCameraView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA7613C2233C564C0057C826 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DAF9520D23405931007CAD9C /* btn_takephotos.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA7613C3233C564C0057C826 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DAF95213234059B1007CAD9C /* zCameraManager.h */,
+				DAF95212234059B1007CAD9C /* zCameraManager.m */,
+				DAF9520F2340599E007CAD9C /* zJBCameraViewController.h */,
+				DAF952102340599E007CAD9C /* zJBCameraViewController.mm */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DAF0BCFB23B20B5E007AD6AA /* BorderAdjustment */ = {
+			isa = PBXGroup;
+			children = (
+				DAF0BCFC23B20B5E007AD6AA /* ViewModel */,
+				DAF0BCFD23B20B5E007AD6AA /* Model */,
+				DAF0BCFE23B20B5E007AD6AA /* View */,
+				DAF0BCFF23B20B5E007AD6AA /* Resource */,
+				DAF0BD0023B20B5E007AD6AA /* ViewController */,
+			);
+			path = BorderAdjustment;
+			sourceTree = "<group>";
+		};
+		DAF0BCFC23B20B5E007AD6AA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DAF0BCFD23B20B5E007AD6AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DAF0BCFE23B20B5E007AD6AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DAF0BD0423B20D77007AD6AA /* zBorderAdjustmentView.h */,
+				DAF0BD0523B20D77007AD6AA /* zBorderAdjustmentView.m */,
+				DAF0BCF523B09740007AD6AA /* zRectangleBorderUIParam.h */,
+				DAF0BCF623B09740007AD6AA /* zRectangleBorderUIParam.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DAF0BCFF23B20B5E007AD6AA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DAF0BD0023B20B5E007AD6AA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DAF0BD0123B20B86007AD6AA /* zBorderAdjustmentViewController.h */,
+				DAF0BD0223B20B86007AD6AA /* zBorderAdjustmentViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DAF9521523405CFC007CAD9C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				DAF9521A23405D74007CAD9C /* UIButton */,
+				DAF9521623405D53007CAD9C /* UILabel */,
+				DAF9521E23406134007CAD9C /* zExpandCategory.h */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		DAF9521623405D53007CAD9C /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				DAF9521723405D6F007CAD9C /* UILabel+zCustome.h */,
+				DAF9521823405D6F007CAD9C /* UILabel+zCustome.m */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		DAF9521A23405D74007CAD9C /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				DAF9521C23405D8D007CAD9C /* UIButton+ActionBlock.h */,
+				DAF9521B23405D8D007CAD9C /* UIButton+ActionBlock.m */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		DAF9521F234087F9007CAD9C /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				DAF9522023408807007CAD9C /* UtilsMacros.h */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		F28A850BD9AD231967C55B99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C7C41AE373C7850F3636E74 /* Pods-zJamBoOpenCV.debug.xcconfig */,
+				35111FAD8B52FA7FE092F246 /* Pods-zJamBoOpenCV.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA761386233B5EB00057C826 /* zJamBoOpenCV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA7613B3233B5EB20057C826 /* Build configuration list for PBXNativeTarget "zJamBoOpenCV" */;
+			buildPhases = (
+				C7D59E39C3701DF7641CC903 /* [CP] Check Pods Manifest.lock */,
+				DA761383233B5EB00057C826 /* Sources */,
+				DA761384233B5EB00057C826 /* Frameworks */,
+				DA761385233B5EB00057C826 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = zJamBoOpenCV;
+			productName = zJamBoOpenCV;
+			productReference = DA761387233B5EB00057C826 /* zJamBoOpenCV.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA76139E233B5EB20057C826 /* zJamBoOpenCVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA7613B6233B5EB20057C826 /* Build configuration list for PBXNativeTarget "zJamBoOpenCVTests" */;
+			buildPhases = (
+				DA76139B233B5EB20057C826 /* Sources */,
+				DA76139C233B5EB20057C826 /* Frameworks */,
+				DA76139D233B5EB20057C826 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA7613A1233B5EB20057C826 /* PBXTargetDependency */,
+			);
+			name = zJamBoOpenCVTests;
+			productName = zJamBoOpenCVTests;
+			productReference = DA76139F233B5EB20057C826 /* zJamBoOpenCVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DA7613A9233B5EB20057C826 /* zJamBoOpenCVUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA7613B9233B5EB20057C826 /* Build configuration list for PBXNativeTarget "zJamBoOpenCVUITests" */;
+			buildPhases = (
+				DA7613A6233B5EB20057C826 /* Sources */,
+				DA7613A7233B5EB20057C826 /* Frameworks */,
+				DA7613A8233B5EB20057C826 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA7613AC233B5EB20057C826 /* PBXTargetDependency */,
+			);
+			name = zJamBoOpenCVUITests;
+			productName = zJamBoOpenCVUITests;
+			productReference = DA7613AA233B5EB20057C826 /* zJamBoOpenCVUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA76137F233B5EB00057C826 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = ZYH;
+				TargetAttributes = {
+					DA761386233B5EB00057C826 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					DA76139E233B5EB20057C826 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = DA761386233B5EB00057C826;
+					};
+					DA7613A9233B5EB20057C826 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = DA761386233B5EB00057C826;
+					};
+				};
+			};
+			buildConfigurationList = DA761382233B5EB00057C826 /* Build configuration list for PBXProject "zJamBoOpenCV" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA76137E233B5EB00057C826;
+			productRefGroup = DA761388233B5EB00057C826 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA761386233B5EB00057C826 /* zJamBoOpenCV */,
+				DA76139E233B5EB20057C826 /* zJamBoOpenCVTests */,
+				DA7613A9233B5EB20057C826 /* zJamBoOpenCVUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA761385233B5EB00057C826 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAF952222344DB6C007CAD9C /* LaunchScreen.storyboard in Resources */,
+				DAF9520E23405931007CAD9C /* btn_takephotos.png in Resources */,
+				DA761394233B5EB20057C826 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA76139D233B5EB20057C826 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA7613A8233B5EB20057C826 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C7D59E39C3701DF7641CC903 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-zJamBoOpenCV-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA761383233B5EB00057C826 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAF0BCFA23B0B51B007AD6AA /* zQuadrilateral.m in Sources */,
+				DA7613C6233C57F80057C826 /* zJamBoCameraView.m in Sources */,
+				DA4AA43823A383BE00C66A6A /* zShowScanResultViewController.m in Sources */,
+				DAF0BD0323B20B86007AD6AA /* zBorderAdjustmentViewController.m in Sources */,
+				DA76138F233B5EB00057C826 /* ViewController.m in Sources */,
+				DA76139A233B5EB20057C826 /* main.m in Sources */,
+				DA4AA42A23A0853F00C66A6A /* zRectangleDetectCameraView.m in Sources */,
+				DAF9521923405D6F007CAD9C /* UILabel+zCustome.m in Sources */,
+				DA4AA424239F4CA000C66A6A /* zRectangleDetectView.m in Sources */,
+				DAF0BD0623B20D77007AD6AA /* zBorderAdjustmentView.m in Sources */,
+				DAF952112340599E007CAD9C /* zJBCameraViewController.mm in Sources */,
+				DA76138C233B5EB00057C826 /* AppDelegate.m in Sources */,
+				DA4AA42D23A0866500C66A6A /* zRectangleDetectHelper.m in Sources */,
+				DAF95214234059B1007CAD9C /* zCameraManager.m in Sources */,
+				DAF9521D23405D8D007CAD9C /* UIButton+ActionBlock.m in Sources */,
+				DAF0BCF723B09740007AD6AA /* zRectangleBorderUIParam.m in Sources */,
+				DA4AA421239F4C2500C66A6A /* zRectangleDetectViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA76139B233B5EB20057C826 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA7613A4233B5EB20057C826 /* zJamBoOpenCVTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA7613A6233B5EB20057C826 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA7613AF233B5EB20057C826 /* zJamBoOpenCVUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA7613A1233B5EB20057C826 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA761386233B5EB00057C826 /* zJamBoOpenCV */;
+			targetProxy = DA7613A0233B5EB20057C826 /* PBXContainerItemProxy */;
+		};
+		DA7613AC233B5EB20057C826 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA761386233B5EB00057C826 /* zJamBoOpenCV */;
+			targetProxy = DA7613AB233B5EB20057C826 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DA7613B1233B5EB20057C826 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = zJamBoOpenCV/zJamBoOpenCV.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DA7613B2233B5EB20057C826 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = zJamBoOpenCV/zJamBoOpenCV.pch;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA7613B4233B5EB20057C826 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C7C41AE373C7850F3636E74 /* Pods-zJamBoOpenCV.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4M999G79R2;
+				INFOPLIST_FILE = zJamBoOpenCV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JamBo.JBPhotoClaim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DA7613B5233B5EB20057C826 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35111FAD8B52FA7FE092F246 /* Pods-zJamBoOpenCV.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4M999G79R2;
+				INFOPLIST_FILE = zJamBoOpenCV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JamBo.JBPhotoClaim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		DA7613B7233B5EB20057C826 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = zJamBoOpenCVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JamBo.zJamBoOpenCVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zJamBoOpenCV.app/zJamBoOpenCV";
+			};
+			name = Debug;
+		};
+		DA7613B8233B5EB20057C826 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = zJamBoOpenCVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JamBo.zJamBoOpenCVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zJamBoOpenCV.app/zJamBoOpenCV";
+			};
+			name = Release;
+		};
+		DA7613BA233B5EB20057C826 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = zJamBoOpenCVUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JamBo.zJamBoOpenCVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = zJamBoOpenCV;
+			};
+			name = Debug;
+		};
+		DA7613BB233B5EB20057C826 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = zJamBoOpenCVUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JamBo.zJamBoOpenCVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = zJamBoOpenCV;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA761382233B5EB00057C826 /* Build configuration list for PBXProject "zJamBoOpenCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA7613B1233B5EB20057C826 /* Debug */,
+				DA7613B2233B5EB20057C826 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA7613B3233B5EB20057C826 /* Build configuration list for PBXNativeTarget "zJamBoOpenCV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA7613B4233B5EB20057C826 /* Debug */,
+				DA7613B5233B5EB20057C826 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA7613B6233B5EB20057C826 /* Build configuration list for PBXNativeTarget "zJamBoOpenCVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA7613B7233B5EB20057C826 /* Debug */,
+				DA7613B8233B5EB20057C826 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA7613B9233B5EB20057C826 /* Build configuration list for PBXNativeTarget "zJamBoOpenCVUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA7613BA233B5EB20057C826 /* Debug */,
+				DA7613BB233B5EB20057C826 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA76137F233B5EB00057C826 /* Project object */;
+}

@@ -94,6 +94,9 @@
     if ([self.captureSession canAddOutput:self.videoOutput]) {
         [self.captureSession addOutput:self.videoOutput];
     }
+    else {
+        return NO;
+    }
     
     if ([self.captureSession canAddOutput:self.imageOutput]) {
         [self.captureSession addOutput:self.imageOutput];

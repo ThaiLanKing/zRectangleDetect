@@ -12,13 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef struct CIFeatureRect {
-    CGPoint topLeft;
-    CGPoint topRight;
-    CGPoint bottomRight;
-    CGPoint bottomLeft;
-}TransformCIFeatureRect;
-
 typedef NS_ENUM(NSUInteger, kRectVertexType) {
     kRectVertexTopLeft,
     kRectVertexTopRight,
@@ -38,32 +31,11 @@ typedef NS_ENUM(NSUInteger, kRectVertexType) {
 + (CIImage *)imagePerspectiveCorrecttedFromImage:(CIImage *)img
                                withQuadrilateral:(zQuadrilateral *)quad;
 
-+ (TransformCIFeatureRect)transformedCoordinateFromFeature:(CIRectangleFeature *)rectFeature
-                                               withImgSize:(CGSize)imgSize
-                                                 inPreview:(UIView *)preview;
-
-
 + (UIImage *)perspectiveImageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer
                                   withFeature:(CIRectangleFeature *)rectFeature;
 
 + (UIImage *)otherPerspectiveImageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer
                                        withFeature:(CIRectangleFeature *)rectFeature;
-
-#pragma mark -
-
-+ (TransformCIFeatureRect)transfromRealCIRectInPreviewRect:(CGRect)previewRect
-                                                 imageRect:(CGRect)imageRect
-                                                   topLeft:(CGPoint)topLeft
-                                                  topRight:(CGPoint)topRight
-                                                bottomLeft:(CGPoint)bottomLeft
-                                               bottomRight:(CGPoint)bottomRight;
-
-+ (TransformCIFeatureRect)transfromRealCGRectInPreviewRect:(CGRect)previewRect
-                                                 imageRect:(CGRect)imageRect
-                                                   topLeft:(CGPoint)topLeft
-                                                  topRight:(CGPoint)topRight
-                                                bottomLeft:(CGPoint)bottomLeft
-                                               bottomRight:(CGPoint)bottomRight;
 
 #pragma mark -
 

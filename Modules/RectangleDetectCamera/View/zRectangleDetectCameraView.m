@@ -36,7 +36,6 @@
     if (self = [super initWithFrame:frame]) {
         if ([self.cameraMgr configSession]) {
             [self.previewLayerView.layer addSublayer:self.cameraMgr.previewLayer];
-            self.cameraMgr.previewLayer.frame = self.previewLayerView.bounds;
         }
     }
     return self;
@@ -150,15 +149,15 @@
     }
 
     // 将图像空间的坐标系转换成uikit坐标系
-    TransformCIFeatureRect featureRect = [self transfromImageRect:imageRect
-                                                      withFeature:rectFeature];
+    zQuadrilateral *CIQuad = [zQuadrilateral qudrilateralFromRectangleFeature:rectFeature];
+    zQuadrilateral *UIQuad = [CIQuad UIQuadrilateralForImgSize:imageRect.size inViewSized:self.bounds.size];
     
     // 边缘识别路径
     UIBezierPath *path = [UIBezierPath new];
-    [path moveToPoint:featureRect.topLeft];
-    [path addLineToPoint:featureRect.topRight];
-    [path addLineToPoint:featureRect.bottomRight];
-    [path addLineToPoint:featureRect.bottomLeft];
+    [path moveToPoint:UIQuad.topLeft];
+    [path addLineToPoint:UIQuad.topRight];
+    [path addLineToPoint:UIQuad.bottomRight];
+    [path addLineToPoint:UIQuad.bottomLeft];
     [path closePath];
     // 背景遮罩路径
     CGFloat lineWidth = self.coverLayer.lineWidth;
@@ -169,13 +168,6 @@
     rectPath.usesEvenOddFillRule = YES;
     [rectPath appendPath:path];
     self.coverLayer.path = rectPath.CGPath;
-}
-
-/// 坐标系转换
-- (TransformCIFeatureRect)transfromImageRect:(CGRect)imageRect
-                                 withFeature:(CIRectangleFeature *)rectFeature
-{    
-    return [zRectangleDetectHelper transformedCoordinateFromFeature:rectFeature withImgSize:imageRect.size inPreview:self];
 }
 
 #pragma mark -

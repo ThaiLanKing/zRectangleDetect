@@ -64,50 +64,6 @@
     return [img imageByApplyingFilter:@"CIPerspectiveCorrection" withInputParameters:rectangleCoordinates];
 }
 
-#pragma mark - 坐标系转换
-/**
- 将CIFeature（坐标原点在左下角）的坐标转换到UIKit（坐标原点在左上角）下
- */
-+ (TransformCIFeatureRect)transformedCoordinateFromFeature:(CIRectangleFeature *)rectFeature
-                                               withImgSize:(CGSize)imgSize
-                                                 inPreview:(UIView *)preview
-{
-    CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
-    transform = CGAffineTransformTranslate(transform, 0, -imgSize.height);
-    
-    CGSize viewSize = preview.bounds.size;
-    CGFloat scale = MAX(viewSize.width/imgSize.width,
-                        viewSize.height/imgSize.height);
-    CGFloat offsetX = (viewSize.width - imgSize.width * scale)/2.0f;
-    CGFloat offsetY = (viewSize.height - imgSize.height * scale)/2.0f;
-    
-    CGAffineTransform scaleTransform = CGAffineTransformMakeScale(scale, scale);
-    CGAffineTransform translationTransform = CGAffineTransformMakeTranslation(offsetX, offsetY);
-    
-    TransformCIFeatureRect featureRect;
-    featureRect.topLeft = rectFeature.topLeft;
-    featureRect.topRight = rectFeature.topRight;
-    featureRect.bottomLeft = rectFeature.bottomLeft;
-    featureRect.bottomRight = rectFeature.bottomRight;
-    
-    featureRect.topLeft = CGPointApplyAffineTransform(featureRect.topLeft, transform);
-    featureRect.topLeft = CGPointApplyAffineTransform(featureRect.topLeft, scaleTransform);
-    featureRect.topLeft = CGPointApplyAffineTransform(featureRect.topLeft, translationTransform);
-    
-    featureRect.topRight = CGPointApplyAffineTransform(featureRect.topRight, transform);
-    featureRect.topRight = CGPointApplyAffineTransform(featureRect.topRight, scaleTransform);
-    featureRect.topRight = CGPointApplyAffineTransform(featureRect.topRight, translationTransform);
-    
-    featureRect.bottomLeft = CGPointApplyAffineTransform(featureRect.bottomLeft, transform);
-    featureRect.bottomLeft = CGPointApplyAffineTransform(featureRect.bottomLeft, scaleTransform);
-    featureRect.bottomLeft = CGPointApplyAffineTransform(featureRect.bottomLeft, translationTransform);
-    
-    featureRect.bottomRight = CGPointApplyAffineTransform(featureRect.bottomRight, transform);
-    featureRect.bottomRight = CGPointApplyAffineTransform(featureRect.bottomRight, scaleTransform);
-    featureRect.bottomRight = CGPointApplyAffineTransform(featureRect.bottomRight, translationTransform);
-    return featureRect;
-}
-
 #pragma mark -
 
 //需要旋转结果影像
@@ -164,61 +120,6 @@
     UIImage *resultImg = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return resultImg;
-}
-
-#pragma mark -
-
-+ (TransformCIFeatureRect)transfromRealCIRectInPreviewRect:(CGRect)previewRect
-                                                 imageRect:(CGRect)imageRect
-                                                   topLeft:(CGPoint)topLeft
-                                                  topRight:(CGPoint)topRight
-                                                bottomLeft:(CGPoint)bottomLeft
-                                               bottomRight:(CGPoint)bottomRight
-{
-    
-    return [[self class] md_transfromRealRectInPreviewRect:previewRect imageRect:imageRect isUICoordinate:NO topLeft:topLeft topRight:topRight bottomLeft:bottomLeft bottomRight:bottomRight];
-}
-
-+ (TransformCIFeatureRect)transfromRealCGRectInPreviewRect:(CGRect)previewRect
-                                                 imageRect:(CGRect)imageRect
-                                                   topLeft:(CGPoint)topLeft
-                                                  topRight:(CGPoint)topRight
-                                                bottomLeft:(CGPoint)bottomLeft
-                                               bottomRight:(CGPoint)bottomRight
-{
-    
-    return [[self class] md_transfromRealRectInPreviewRect:previewRect imageRect:imageRect isUICoordinate:YES topLeft:topLeft topRight:topRight bottomLeft:bottomLeft bottomRight:bottomRight];
-}
-
-
-+ (TransformCIFeatureRect)md_transfromRealRectInPreviewRect:(CGRect)previewRect
-                                                  imageRect:(CGRect)imageRect
-                                             isUICoordinate:(BOOL)isUICoordinate
-                                                    topLeft:(CGPoint)topLeft
-                                                   topRight:(CGPoint)topRight
-                                                 bottomLeft:(CGPoint)bottomLeft
-                                                bottomRight:(CGPoint)bottomRight
-{
-    
-    // find ratio between the video preview rect and the image rect; rectangle feature coordinates are relative to the CIImage
-    CGFloat deltaX = CGRectGetWidth(previewRect)/CGRectGetWidth(imageRect);
-    CGFloat deltaY = CGRectGetHeight(previewRect)/CGRectGetHeight(imageRect);
-    
-    // transform to UIKit coordinate system
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(0.f, CGRectGetHeight(previewRect));
-    if (!isUICoordinate) {
-        transform = CGAffineTransformScale(transform, 1, -1);
-    }
-    // apply preview to image scaling
-    transform = CGAffineTransformScale(transform, deltaX, deltaY);
-        
-    TransformCIFeatureRect featureRect;
-    featureRect.topLeft = CGPointApplyAffineTransform(topLeft, transform);
-    featureRect.topRight = CGPointApplyAffineTransform(topRight, transform);
-    featureRect.bottomRight = CGPointApplyAffineTransform(bottomRight, transform);
-    featureRect.bottomLeft = CGPointApplyAffineTransform(bottomLeft, transform);
-
-    return featureRect;
 }
 
 #pragma mark -

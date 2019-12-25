@@ -10,6 +10,7 @@
 #import "zCameraManager.h"
 #import <GLKit/GLKit.h>
 #import "zRectangleDetectHelper.h"
+#import "zRectangleDetectView+ShowWithGLKView.h"
 
 @interface zRectangleDetectView ()<AVCaptureVideoDataOutputSampleBufferDelegate>
 {
@@ -195,12 +196,15 @@
 {
     CGRect previewRect = self.frame;
     
-    return [zRectangleDetectHelper transfromRealCIRectInPreviewRect:previewRect
-                                                        imageRect:imageRect
-                                                          topLeft:rectFeature.topLeft
-                                                         topRight:rectFeature.topRight
-                                                       bottomLeft:rectFeature.bottomLeft
-                                                      bottomRight:rectFeature.bottomRight];
+    TransformCIFeatureRect originRect;
+    originRect.topLeft = rectFeature.topLeft;
+    originRect.topRight = rectFeature.topRight;
+    originRect.bottomLeft = rectFeature.bottomLeft;
+    originRect.bottomRight = rectFeature.bottomRight;
+    
+    return [[self class] transfromRealCIRectInPreviewRect:previewRect
+                                                imageRect:imageRect
+                                             originalRect:originRect];
 }
 
 #pragma mark -

@@ -10,6 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 用GLKView实时显示影像
+ 保留这个版本是为了留下GLKView的使用范例
+ */
 @interface zRectangleDetectView : UIView
 
 /// 开始捕获视图

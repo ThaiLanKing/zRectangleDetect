@@ -77,16 +77,22 @@
 {
     zQuadrilateral *ciQuad = [self.borderAdjustmentView.rectUIQuad CIQuadrilateralForImgSize:self.srcImg.size inViewSized:self.borderAdjustmentView.bounds.size];
     CIImage *enhancedImage = self.srcImg.CIImage;
-    enhancedImage = [zRectangleDetectHelper imagePerspectiveCorrecttedFromImage:enhancedImage withQuadrilateral:ciQuad];
-    CGSize imgSize = CGSizeMake(enhancedImage.extent.size.height,
-                                enhancedImage.extent.size.width);
-    UIGraphicsBeginImageContext(imgSize);
-    [[UIImage imageWithCIImage:enhancedImage
-                         scale:1.0
-                   orientation:UIImageOrientationRight]
-     drawInRect:CGRectMake(0,0, imgSize.width, imgSize.height)];
-    UIImage *resultImg = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    
+    //从完整影像中截取目标影像
+    NSMutableDictionary *rectangleCoordinates = [NSMutableDictionary dictionaryWithCapacity:0];
+    rectangleCoordinates[@"inputExtent"] = [CIVector vectorWithCGRect:enhancedImage.extent];
+    rectangleCoordinates[@"inputTopLeft"] = [CIVector vectorWithCGPoint:ciQuad.topLeft];
+    rectangleCoordinates[@"inputTopRight"] = [CIVector vectorWithCGPoint:ciQuad.topRight];
+    rectangleCoordinates[@"inputBottomLeft"] = [CIVector vectorWithCGPoint:ciQuad.bottomLeft];
+    rectangleCoordinates[@"inputBottomRight"] = [CIVector vectorWithCGPoint:ciQuad.bottomRight];
+    CIImage *resultCIImg = [enhancedImage imageByApplyingFilter:@"CIPerspectiveTransformWithExtent" withInputParameters:rectangleCoordinates];
+    resultCIImg = [enhancedImage imageByCroppingToRect:resultCIImg.extent];
+    
+    //将不规则四边形转成长方形
+    enhancedImage = [zRectangleDetectHelper imagePerspectiveCorrecttedFromImage:resultCIImg withQuadrilateral:ciQuad];
+    
+    //转换成UIImage
+    UIImage *resultImg = [UIImage imageWithCIImage:enhancedImage];
     
     zShowScanResultViewController *dstVC = [[zShowScanResultViewController alloc] init];
     dstVC.resultImg = resultImg;

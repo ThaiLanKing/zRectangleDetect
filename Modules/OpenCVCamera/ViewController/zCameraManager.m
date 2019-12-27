@@ -82,7 +82,7 @@
 {
     [self.captureSession beginConfiguration];
     
-    self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
+    self.captureSession.sessionPreset = AVCaptureSessionPresetHigh;
     
     if ([self.captureSession canAddInput:self.captureInput]) {
         [self.captureSession addInput:self.captureInput];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "zQuadrilateral.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 #ifdef DEBUG //测试
 
 + (UIImage *)testCropImg:(UIImage *)srcImg;
+
++ (zQuadrilateral *)scannedRectangleFromImg:(UIImage *)srcImg;
 
 #endif
 

@@ -7,10 +7,24 @@
 //
 
 #import "zQuadrilateral.h"
+#import "zRectangleDetectHelper.h"
+
+#define pointRotatedAroundAnchorPoint(point,anchorPoint,angle) CGPointMake((point.x-anchorPoint.x)*cos(angle) - (point.y-anchorPoint.y)*sin(angle) + anchorPoint.x, (point.x-anchorPoint.x)*sin(angle) + (point.y-anchorPoint.y)*cos(angle)+anchorPoint.y)
 
 @implementation zQuadrilateral
 
 #pragma mark -
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    zQuadrilateral *quad = [[[self class] allocWithZone:zone] init];
+    quad.topLeft = self.topLeft;
+    quad.topRight = self.topRight;
+    quad.bottomLeft = self.bottomLeft;
+    quad.bottomRight = self.bottomRight;
+    
+    return quad;
+}
 
 + (instancetype)qudrilateralFromRectangleFeature:(CIRectangleFeature *)rectFeature
 {
@@ -35,6 +49,8 @@
     self.bottomRight = CGPointApplyAffineTransform(self.bottomRight, transform);
 }
 
+#pragma mark -
+
 - (zQuadrilateral *)UIQuadrilateralForImgSize:(CGSize)imgSize
                                   inViewSized:(CGSize)viewSize
 {
@@ -44,7 +60,7 @@
     CGFloat offsetY = (viewSize.height - imgSize.height * scale)/2.0f;
  
     //坐标系转换
-    CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
+    CGAffineTransform transform = CGAffineTransformMakeScale(1.0f, -1.0f);
     transform = CGAffineTransformTranslate(transform, 0, -imgSize.height);
     //缩放
     CGAffineTransform scaleTransform = CGAffineTransformMakeScale(scale, scale);

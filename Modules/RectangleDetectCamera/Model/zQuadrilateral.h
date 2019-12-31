@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface zQuadrilateral : NSObject
+@interface zQuadrilateral : NSObject<NSCopying>
 
 @property (nonatomic, assign) CGPoint topLeft;
 @property (nonatomic, assign) CGPoint topRight;

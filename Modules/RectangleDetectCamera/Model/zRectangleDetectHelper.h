@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "zQuadrilateral.h"
+#import "UIImageView+zRectangleDetect.h"
+#import "UIImage+zRectangleDetect.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,6 +43,16 @@ typedef NS_ENUM(NSUInteger, kRectVertexType) {
 
 + (CGFloat)distanceFromPoint:(CGPoint)startPoint
                      toPoint:(CGPoint)endPoint;
+
+#pragma mark -
+
++ (zQuadrilateral *)UIQuadFromCIQuad:(zQuadrilateral *)CIQuad
+                            forImage:(UIImage *)srcImg
+                         inImageView:(UIImageView *)imgView;
+
++ (zQuadrilateral *)CIQuadFromUIQuad:(zQuadrilateral *)UIQuad
+                            forImage:(UIImage *)srcImg
+                         inImageView:(UIImageView *)imgView;
 
 @end
 

@@ -149,6 +149,11 @@
     [self setNeedsDisplay];
 }
 
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self setNeedsDisplay];
+}
+
 #pragma mark -
 
 - (void)drawCornerCircleAtPoint:(CGPoint)point

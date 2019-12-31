@@ -132,6 +132,74 @@
     return sqrt(deltaX*deltaX + deltaY*deltaY);
 }
 
+#pragma mark -
 
++ (zQuadrilateral *)UIQuadFromCIQuad:(zQuadrilateral *)CIQuad
+                            forImage:(UIImage *)srcImg
+                         inImageView:(UIImageView *)imgView
+{
+    if (!CIQuad || !srcImg || !imgView) {
+        return nil;
+    }
+    
+    CGSize imgSize = srcImg.size;
+    CGSize viewSize = imgView.bounds.size;
+    
+    CGSize imgScale = imgView.imgScale;
+    CGFloat offsetX = (viewSize.width - imgSize.width * imgScale.width)/2.0f;
+    CGFloat offsetY = (viewSize.height - imgSize.height * imgScale.height)/2.0f;
+    
+    //坐标系转换
+    CGAffineTransform transform = CGAffineTransformMakeScale(1.0f, -1.0f);
+    transform = CGAffineTransformTranslate(transform, 0, -imgSize.height);
+    //缩放
+    CGAffineTransform scaleTransform = CGAffineTransformMakeScale(imgScale.width, imgScale.height);
+    //平移
+    CGAffineTransform translationTransform = CGAffineTransformMakeTranslation(offsetX, offsetY);
+    
+    zQuadrilateral *resultQuad = [CIQuad copy];
+    CGAffineTransform orientationCorrectTransform = [srcImg zOrientationCorrectTransform];
+    [resultQuad applyTransform:orientationCorrectTransform];
+    [resultQuad applyTransform:transform];
+    [resultQuad applyTransform:scaleTransform];
+    [resultQuad applyTransform:translationTransform];
+    
+    return resultQuad;
+}
+
++ (zQuadrilateral *)CIQuadFromUIQuad:(zQuadrilateral *)UIQuad
+                            forImage:(UIImage *)srcImg
+                         inImageView:(UIImageView *)imgView
+{
+    if (!UIQuad || !srcImg || !imgView) {
+        return nil;
+    }
+    
+    CGSize imgSize = srcImg.size;
+    CGSize viewSize = imgView.bounds.size;
+    
+    CGSize imgScale = imgView.imgScale;
+    CGFloat offsetX = (viewSize.width - imgSize.width * imgScale.width)/2.0f;
+    CGFloat offsetY = (viewSize.height - imgSize.height * imgScale.height)/2.0f;
+    
+    //坐标系转换
+    CGAffineTransform transform = CGAffineTransformMakeScale(1, -1);
+    transform = CGAffineTransformTranslate(transform, 0, -imgSize.height);
+    //缩放
+    CGAffineTransform scaleTransform = CGAffineTransformMakeScale(1/imgScale.width, 1/imgScale.height);
+    //平移
+    CGAffineTransform translationTransform = CGAffineTransformMakeTranslation(-offsetX, -offsetY);
+    
+    zQuadrilateral *resultQuad = [UIQuad copy];
+    
+    [resultQuad applyTransform:translationTransform];
+    [resultQuad applyTransform:scaleTransform];
+    [resultQuad applyTransform:transform];
+    
+    CGAffineTransform orientationCorrectTransform = [srcImg zUIOrientationCorrectTransform];
+    [resultQuad applyTransform:orientationCorrectTransform];
+    
+    return resultQuad;
+}
 
 @end

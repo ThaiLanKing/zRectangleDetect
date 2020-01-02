@@ -23,7 +23,7 @@
 		DAD3F5E923B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5E823B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m */; };
 		DAD3F5EE23B59D61007F1A41 /* zAlbumBorderAdjustViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5ED23B59D61007F1A41 /* zAlbumBorderAdjustViewController.m */; };
 		DAD3F5F523BB2995007F1A41 /* UIImage+zRectangleDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5F423BB2995007F1A41 /* UIImage+zRectangleDetect.m */; };
-		DAD3F5F923BB411E007F1A41 /* UIImageView+zRectangleDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5F823BB411E007F1A41 /* UIImageView+zRectangleDetect.m */; };
+		DAD3F5FC23BDD848007F1A41 /* zBorderTransformParam.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5FB23BDD848007F1A41 /* zBorderTransformParam.m */; };
 		DAF0BCF723B09740007AD6AA /* zRectangleBorderUIParam.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BCF623B09740007AD6AA /* zRectangleBorderUIParam.m */; };
 		DAF0BCFA23B0B51B007AD6AA /* zQuadrilateral.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BCF923B0B51B007AD6AA /* zQuadrilateral.m */; };
 		DAF0BD0323B20B86007AD6AA /* zBorderAdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BD0223B20B86007AD6AA /* zBorderAdjustmentViewController.m */; };
@@ -90,8 +90,8 @@
 		DAD3F5ED23B59D61007F1A41 /* zAlbumBorderAdjustViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zAlbumBorderAdjustViewController.m; sourceTree = "<group>"; };
 		DAD3F5F323BB2995007F1A41 /* UIImage+zRectangleDetect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+zRectangleDetect.h"; sourceTree = "<group>"; };
 		DAD3F5F423BB2995007F1A41 /* UIImage+zRectangleDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+zRectangleDetect.m"; sourceTree = "<group>"; };
-		DAD3F5F723BB411E007F1A41 /* UIImageView+zRectangleDetect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+zRectangleDetect.h"; sourceTree = "<group>"; };
-		DAD3F5F823BB411E007F1A41 /* UIImageView+zRectangleDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+zRectangleDetect.m"; sourceTree = "<group>"; };
+		DAD3F5FA23BDD848007F1A41 /* zBorderTransformParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zBorderTransformParam.h; sourceTree = "<group>"; };
+		DAD3F5FB23BDD848007F1A41 /* zBorderTransformParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zBorderTransformParam.m; sourceTree = "<group>"; };
 		DAF0BCF523B09740007AD6AA /* zRectangleBorderUIParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zRectangleBorderUIParam.h; sourceTree = "<group>"; };
 		DAF0BCF623B09740007AD6AA /* zRectangleBorderUIParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zRectangleBorderUIParam.m; sourceTree = "<group>"; };
 		DAF0BCF823B0B51B007AD6AA /* zQuadrilateral.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zQuadrilateral.h; sourceTree = "<group>"; };
@@ -174,6 +174,8 @@
 				DA4AA42C23A0866500C66A6A /* zRectangleDetectHelper.m */,
 				DAF0BCF823B0B51B007AD6AA /* zQuadrilateral.h */,
 				DAF0BCF923B0B51B007AD6AA /* zQuadrilateral.m */,
+				DAD3F5FA23BDD848007F1A41 /* zBorderTransformParam.h */,
+				DAD3F5FB23BDD848007F1A41 /* zBorderTransformParam.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,15 +391,6 @@
 			path = UIImage;
 			sourceTree = "<group>";
 		};
-		DAD3F5F623BB40F9007F1A41 /* UIImageView */ = {
-			isa = PBXGroup;
-			children = (
-				DAD3F5F723BB411E007F1A41 /* UIImageView+zRectangleDetect.h */,
-				DAD3F5F823BB411E007F1A41 /* UIImageView+zRectangleDetect.m */,
-			);
-			path = UIImageView;
-			sourceTree = "<group>";
-		};
 		DAF0BCFB23B20B5E007AD6AA /* BorderAdjustment */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,7 +449,6 @@
 		DAF9521523405CFC007CAD9C /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				DAD3F5F623BB40F9007F1A41 /* UIImageView */,
 				DAD3F5EF23B9CFC8007F1A41 /* UIImage */,
 				DAF9521A23405D74007CAD9C /* UIButton */,
 				DAF9521623405D53007CAD9C /* UILabel */,
@@ -659,11 +651,11 @@
 				DAF0BCFA23B0B51B007AD6AA /* zQuadrilateral.m in Sources */,
 				DAD3F5F523BB2995007F1A41 /* UIImage+zRectangleDetect.m in Sources */,
 				DA7613C6233C57F80057C826 /* zJamBoCameraView.m in Sources */,
+				DAD3F5FC23BDD848007F1A41 /* zBorderTransformParam.m in Sources */,
 				DA4AA43823A383BE00C66A6A /* zShowScanResultViewController.m in Sources */,
 				DAF0BD0323B20B86007AD6AA /* zBorderAdjustmentViewController.m in Sources */,
 				DA76138F233B5EB00057C826 /* ViewController.m in Sources */,
 				DA76139A233B5EB20057C826 /* main.m in Sources */,
-				DAD3F5F923BB411E007F1A41 /* UIImageView+zRectangleDetect.m in Sources */,
 				DA4AA42A23A0853F00C66A6A /* zRectangleDetectCameraView.m in Sources */,
 				DAD3F5E923B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m in Sources */,
 				DAF9521923405D6F007CAD9C /* UILabel+zCustome.m in Sources */,

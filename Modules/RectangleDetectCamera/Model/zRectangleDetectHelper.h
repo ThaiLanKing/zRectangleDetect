@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "zQuadrilateral.h"
-#import "UIImageView+zRectangleDetect.h"
 #import "UIImage+zRectangleDetect.h"
+#import "zBorderTransformParam.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

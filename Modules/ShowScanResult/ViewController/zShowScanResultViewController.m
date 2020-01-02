@@ -27,7 +27,7 @@
 
 - (void)initView
 {
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     
     [self.view addSubview:self.resultImgView];
     

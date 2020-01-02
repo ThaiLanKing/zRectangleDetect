@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CIImage *)zCIImageFromUIImage:(UIImage *)srcImg;
 
-- (CGAffineTransform)zOrientationCorrectTransform;
+- (CGAffineTransform)zCIOrientationCorrectTransform;
 
 - (CGAffineTransform)zUIOrientationCorrectTransform;
 

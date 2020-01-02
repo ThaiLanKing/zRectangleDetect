@@ -20,12 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)qudrilateralFromRectangleFeature:(CIRectangleFeature *)rectFeature;
 
 - (void)applyTransform:(CGAffineTransform)transform;
-
-- (zQuadrilateral *)UIQuadrilateralForImgSize:(CGSize)imgSize
-                                  inViewSized:(CGSize)viewSize;
-
-- (zQuadrilateral *)CIQuadrilateralForImgSize:(CGSize)imgSize
-                                  inViewSized:(CGSize)viewSize;
+- (void)applyTransforms:(NSArray<NSValue *> *)transforms;
 
 @end
 

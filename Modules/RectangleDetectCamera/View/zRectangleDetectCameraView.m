@@ -150,7 +150,7 @@
 
     // 将图像空间的坐标系转换成uikit坐标系
     zQuadrilateral *CIQuad = [zQuadrilateral qudrilateralFromRectangleFeature:rectFeature];
-    zQuadrilateral *UIQuad = [CIQuad UIQuadrilateralForImgSize:imageRect.size inViewSized:self.bounds.size];
+    zQuadrilateral *UIQuad = [zRectangleDetectHelper UIQuadTransformWithCIQuad:CIQuad imgSize:imageRect.size inViewSized:self.bounds.size];
     
     // 边缘识别路径
     UIBezierPath *path = [UIBezierPath new];

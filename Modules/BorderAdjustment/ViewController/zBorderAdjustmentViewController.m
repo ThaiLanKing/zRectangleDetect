@@ -49,7 +49,7 @@
     [super viewDidLayoutSubviews];
     
     zQuadrilateral *CIQuad = [zQuadrilateral qudrilateralFromRectangleFeature:self.scannedRectFeature];
-    self.borderAdjustmentView.rectUIQuad = [CIQuad UIQuadrilateralForImgSize:self.srcImg.size inViewSized:self.borderAdjustmentView.bounds.size];
+    self.borderAdjustmentView.rectUIQuad = [zRectangleDetectHelper UIQuadFromCIQuad:CIQuad forImage:self.srcImg inImageView:self.srcImageView];
 }
 
 #pragma mark -
@@ -75,7 +75,7 @@
 
 - (void)saveConfirmedImg
 {
-    zQuadrilateral *ciQuad = [self.borderAdjustmentView.rectUIQuad CIQuadrilateralForImgSize:self.srcImg.size inViewSized:self.borderAdjustmentView.bounds.size];
+    zQuadrilateral *ciQuad = [zRectangleDetectHelper CIQuadFromUIQuad:self.borderAdjustmentView.rectUIQuad forImage:self.srcImg inImageView:self.srcImageView];
     CIImage *enhancedImage = self.srcImg.CIImage;
     
     //从完整影像中截取目标影像

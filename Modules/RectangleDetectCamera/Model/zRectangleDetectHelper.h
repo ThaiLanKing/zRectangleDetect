@@ -54,6 +54,11 @@ typedef NS_ENUM(NSUInteger, kRectVertexType) {
                             forImage:(UIImage *)srcImg
                          inImageView:(UIImageView *)imgView;
 
+
++ (zQuadrilateral *)UIQuadTransformWithCIQuad:(zQuadrilateral *)srcQuad
+                                      imgSize:(CGSize)imgSize
+                                  inViewSized:(CGSize)viewSize;
+
 @end
 
 NS_ASSUME_NONNULL_END

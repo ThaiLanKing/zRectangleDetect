@@ -24,13 +24,6 @@
 #import "zBorderAdjustmentViewController.h"
 #import "zRectangleDetectHelper.h"
 
-#ifdef DEBUG //测试
-
-#import "zAlbumBorderAdjustViewController.h"
-#import "UIImage+zRectangleDetect.h"
-
-#endif
-
 @import VisionKit;
 @import Vision;
 
@@ -196,19 +189,7 @@
         }
         else {
             //先调整原图的orientation，然后再识别矩形
-//            image = [self normalizedImage:image];
-//            image = [image fixOrientation];
-            CIImage *srcCIImage = image.CIImage;
-            if (!srcCIImage) {
-                if (image.CGImage) {
-                    srcCIImage = [CIImage imageWithCGImage:image.CGImage];
-                }
-                else {
-                    NSData *imgData = UIImagePNGRepresentation(image);
-                    srcCIImage = [CIImage imageWithData:imgData];
-                }
-            }
-            
+            CIImage *srcCIImage = [UIImage zCIImageFromUIImage:image];
             srcCIImage = [zRectangleDetectHelper imageFilteredUsingContrastOnImage:srcCIImage];
             
             NSArray<CIFeature *> *features = [[self rectangleDetector] featuresInImage:srcCIImage];
@@ -216,9 +197,10 @@
             CIRectangleFeature* borderDetectLastRectangleFeature = [zRectangleDetectHelper biggestRectangleFeatureInFeatures:features];
             
             [picker dismissViewControllerAnimated:YES completion:^{
-                zAlbumBorderAdjustViewController *dstVC = [[zAlbumBorderAdjustViewController alloc] init];
+                zBorderAdjustmentViewController *dstVC = [[zBorderAdjustmentViewController alloc] init];
                 dstVC.srcImg = image;
                 dstVC.scannedRectFeature = borderDetectLastRectangleFeature;
+                [dstVC setImageShowMode:kImageShowModeScaleAspectFit];
                 [self.navigationController pushViewController:dstVC animated:YES];
             }];
             

@@ -21,7 +21,6 @@
 		DA7613AF233B5EB20057C826 /* zJamBoOpenCVUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7613AE233B5EB20057C826 /* zJamBoOpenCVUITests.m */; };
 		DA7613C6233C57F80057C826 /* zJamBoCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7613C5233C57F80057C826 /* zJamBoCameraView.m */; };
 		DAD3F5E923B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5E823B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m */; };
-		DAD3F5EE23B59D61007F1A41 /* zAlbumBorderAdjustViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5ED23B59D61007F1A41 /* zAlbumBorderAdjustViewController.m */; };
 		DAD3F5F523BB2995007F1A41 /* UIImage+zRectangleDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5F423BB2995007F1A41 /* UIImage+zRectangleDetect.m */; };
 		DAD3F5FC23BDD848007F1A41 /* zBorderTransformParam.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5FB23BDD848007F1A41 /* zBorderTransformParam.m */; };
 		DAF0BCF723B09740007AD6AA /* zRectangleBorderUIParam.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BCF623B09740007AD6AA /* zRectangleBorderUIParam.m */; };
@@ -86,8 +85,6 @@
 		DA7613C5233C57F80057C826 /* zJamBoCameraView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zJamBoCameraView.m; sourceTree = "<group>"; };
 		DAD3F5E723B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "zRectangleDetectView+ShowWithGLKView.h"; sourceTree = "<group>"; };
 		DAD3F5E823B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "zRectangleDetectView+ShowWithGLKView.m"; sourceTree = "<group>"; };
-		DAD3F5EC23B59D61007F1A41 /* zAlbumBorderAdjustViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zAlbumBorderAdjustViewController.h; sourceTree = "<group>"; };
-		DAD3F5ED23B59D61007F1A41 /* zAlbumBorderAdjustViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zAlbumBorderAdjustViewController.m; sourceTree = "<group>"; };
 		DAD3F5F323BB2995007F1A41 /* UIImage+zRectangleDetect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+zRectangleDetect.h"; sourceTree = "<group>"; };
 		DAD3F5F423BB2995007F1A41 /* UIImage+zRectangleDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+zRectangleDetect.m"; sourceTree = "<group>"; };
 		DAD3F5FA23BDD848007F1A41 /* zBorderTransformParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zBorderTransformParam.h; sourceTree = "<group>"; };
@@ -440,8 +437,6 @@
 			children = (
 				DAF0BD0123B20B86007AD6AA /* zBorderAdjustmentViewController.h */,
 				DAF0BD0223B20B86007AD6AA /* zBorderAdjustmentViewController.m */,
-				DAD3F5EC23B59D61007F1A41 /* zAlbumBorderAdjustViewController.h */,
-				DAD3F5ED23B59D61007F1A41 /* zAlbumBorderAdjustViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -662,7 +657,6 @@
 				DA4AA424239F4CA000C66A6A /* zRectangleDetectView.m in Sources */,
 				DAF0BD0623B20D77007AD6AA /* zBorderAdjustmentView.m in Sources */,
 				DAF952112340599E007CAD9C /* zJBCameraViewController.mm in Sources */,
-				DAD3F5EE23B59D61007F1A41 /* zAlbumBorderAdjustViewController.m in Sources */,
 				DA76138C233B5EB00057C826 /* AppDelegate.m in Sources */,
 				DA4AA42D23A0866500C66A6A /* zRectangleDetectHelper.m in Sources */,
 				DAF95214234059B1007CAD9C /* zCameraManager.m in Sources */,

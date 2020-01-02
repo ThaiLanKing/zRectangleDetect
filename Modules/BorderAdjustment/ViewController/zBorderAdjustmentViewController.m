@@ -73,10 +73,15 @@
 
 #pragma mark -
 
+- (void)setImageShowMode:(kImageShowMode)showMode
+{
+    self.srcImageView.contentMode = showMode;
+}
+
 - (void)saveConfirmedImg
 {
     zQuadrilateral *ciQuad = [zRectangleDetectHelper CIQuadFromUIQuad:self.borderAdjustmentView.rectUIQuad forImage:self.srcImg inImageView:self.srcImageView];
-    CIImage *enhancedImage = self.srcImg.CIImage;
+    CIImage *enhancedImage = [UIImage zCIImageFromUIImage:self.srcImg];
     
     //从完整影像中截取目标影像
     NSMutableDictionary *rectangleCoordinates = [NSMutableDictionary dictionaryWithCapacity:0];

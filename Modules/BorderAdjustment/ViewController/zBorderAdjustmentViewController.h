@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "zQuadrilateral.h"
+#import "zBorderTransformParam.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIImage *srcImg;
 @property (nonatomic, strong) CIRectangleFeature *scannedRectFeature;
+
+- (void)setImageShowMode:(kImageShowMode)showMode;
 
 @end
 

@@ -194,7 +194,7 @@
             
             NSArray<CIFeature *> *features = [[self rectangleDetector] featuresInImage:srcCIImage];
             // 选取特征列表中最大的矩形
-            CIRectangleFeature* borderDetectLastRectangleFeature = [zRectangleDetectHelper biggestRectangleFeatureInFeatures:features];
+            CIRectangleFeature *borderDetectLastRectangleFeature = [zRectangleDetectHelper biggestRectangleFeatureInFeatures:features];
             
             [picker dismissViewControllerAnimated:YES completion:^{
                 zBorderAdjustmentViewController *dstVC = [[zBorderAdjustmentViewController alloc] init];
@@ -212,27 +212,6 @@
     }
 }
 
-- (UIImage *)normalizedImage:(UIImage *)srcImg {
-    if (srcImg.imageOrientation == UIImageOrientationUp) return srcImg;
-
-    UIGraphicsBeginImageContextWithOptions(srcImg.size, NO, srcImg.scale);
-    [srcImg drawInRect:(CGRect){0, 0, srcImg.size}];
-    UIImage *normalizedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return normalizedImage;
-}
-
-#ifdef DEBUG //测试
-
-- (CIDetector *)rectangleDetector
-{
-    return [CIDetector detectorOfType:CIDetectorTypeRectangle
-    context:nil
-    options:@{CIDetectorAccuracy : CIDetectorAccuracyHigh}];
-}
-
-#endif
-
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     NSLog(@"取消选择相片");
@@ -240,63 +219,11 @@
 
 #pragma mark -
 
-- (UIImage *)testCropImg:(UIImage *)srcImg
+- (CIDetector *)rectangleDetector
 {
-    if (@available(iOS 10.0, *)) {
-        NSDictionary *options = @{CIDetectorAccuracy : CIDetectorAccuracyHigh,
-//                                  CIDetectorAspectRatio: @(0.3),
-//                                  CIDetectorMaxFeatureCount : @(10),
-        };
-        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeRectangle context:nil options:options];
-        CIImage *srcCIImg = [[CIImage alloc] initWithImage:srcImg];
-        NSArray *features = [detector featuresInImage:srcCIImg];
-        
-//        for (CIFeature *feature in features) {
-//            if ([feature isKindOfClass:[CIRectangleFeature class]]) {
-//                CIImage *resultCIImg = [self cropImgFrom:srcCIImg withFeature:feature];
-//                UIImage *resultFromCIImg = [UIImage imageWithCIImage:resultCIImg];
-//                NSLog(@"CIImgSuccess");
-//
-//                return resultFromCIImg;
-//            }
-//        }
-//
-//        return nil;
-        
-        CGFloat halfPerimiterValue = 0.0;
-        for (CIRectangleFeature *feature in features) {
-            CGPoint p1 = feature.topLeft;
-            CGPoint p2 = feature.topRight;
-            CGFloat width = hypotf(p1.x - p2.x, p1.y - p2.y);
-
-            CGPoint p4 = feature.bottomLeft;
-            CGFloat height = hypotf(p1.x - p4.x, p1.y - p4.y);
-            CGFloat currentHalfPerimiterValue = height + width;
-            if (halfPerimiterValue < currentHalfPerimiterValue) {
-                halfPerimiterValue = currentHalfPerimiterValue;
-
-                CIImage *resultCIImg = [self cropImgFrom:srcCIImg withFeature:feature];
-                UIImage *resultFromCIImg = [UIImage imageWithCIImage:resultCIImg];
-                NSLog(@"CIImgSuccess");
-            }
-        }
-        
-        return nil;
-    }
-    
-    return nil;
-}
-
-- (CIImage *)cropImgFrom:(CIImage *)srcImg withFeature:(CIRectangleFeature *)feature
-{
-    NSDictionary *parameter = @{ @"inputExtent" : [CIVector vectorWithCGRect:srcImg.extent],
-    @"inputTopLeft" : [CIVector vectorWithCGPoint:feature.topLeft],
-    @"inputTopRight" : [CIVector vectorWithCGPoint:feature.topRight],
-    @"inputBottomLeft" : [CIVector vectorWithCGPoint:feature.bottomLeft],
-    @"inputBottomRight" : [CIVector vectorWithCGPoint:feature.bottomRight] };
-    CIImage *result = [srcImg imageByApplyingFilter:@"CIPerspectiveTransformWithExtent" withInputParameters:parameter];
-    result = [result imageByCroppingToRect:result.extent];
-    return result;
+    return [CIDetector detectorOfType:CIDetectorTypeRectangle
+    context:nil
+    options:@{CIDetectorAccuracy : CIDetectorAccuracyHigh}];
 }
 
 //@available(iOS 13.0, *)

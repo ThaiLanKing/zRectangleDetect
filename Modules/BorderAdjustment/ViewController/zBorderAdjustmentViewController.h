@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImage *srcImg;
 @property (nonatomic, strong) CIRectangleFeature *scannedRectFeature;
 
+//实时检测的影像是AsepectFill，相册影像是AspectFit
 - (void)setImageShowMode:(kImageShowMode)showMode;
 
 @end

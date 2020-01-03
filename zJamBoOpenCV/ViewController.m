@@ -23,6 +23,7 @@
 #import "zRectangleDetectViewController.h"
 #import "zBorderAdjustmentViewController.h"
 #import "zRectangleDetectHelper.h"
+#import "zShowScanResultViewController.h"
 
 @import VisionKit;
 @import Vision;
@@ -72,21 +73,21 @@
     [self.view addSubview:VNDocumentVersionBtn];
     
     [openCVVersionBtn makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(100);
+        make.width.equalTo(120);
         make.height.equalTo(60);
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.view).offset(100);
     }];
     
     [CIVersionBtn makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(160);
+        make.width.equalTo(180);
         make.height.equalTo(60);
         make.centerX.equalTo(self.view);
         make.top.equalTo(openCVVersionBtn.bottom).offset(30);
     }];
     
     [VNDocumentVersionBtn makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(220);
+        make.width.equalTo(280);
         make.height.equalTo(60);
         make.centerX.equalTo(self.view);
         make.top.equalTo(CIVersionBtn.bottom).offset(30);
@@ -164,6 +165,11 @@
     }
     else {
         NSLog(@"系统版本低于iOS13，不可使用");
+        
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:@"系统版本低于iOS13，不可用！" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleCancel handler:nil];
+        [alertVC addAction:cancelAction];
+        [self presentViewController:alertVC animated:YES completion:nil];
     }
 }
 
@@ -178,13 +184,12 @@
     {
         UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
         if (_useOpenCV) {
-            zQuadrilateral *CIQuad = [zJBCameraViewController scannedRectangleFromImg:image];
+            UIImage *testImg = [zJBCameraViewController testCropImg:image];
             
             [picker dismissViewControllerAnimated:YES completion:^{
-//                zAlbumBorderAdjustViewController *dstVC = [[zAlbumBorderAdjustViewController alloc] init];
-//                dstVC.srcImg = image;
-//                dstVC.aspectFitQuad = CIQuad;
-//                [self.navigationController pushViewController:dstVC animated:YES];
+                zShowScanResultViewController *dstVC = [[zShowScanResultViewController alloc] init];
+                dstVC.resultImg = testImg;
+                [self.navigationController pushViewController:dstVC animated:YES];
             }];
         }
         else {

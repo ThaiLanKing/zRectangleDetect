@@ -215,6 +215,7 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     NSLog(@"取消选择相片");
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -

@@ -98,7 +98,6 @@
             UIImage *srcImg = [UIImage imageWithCIImage:image];            
             self.scanRectangleCompleteBlock(srcImg, _borderDetectLastRectangleFeature);
         }
-        NSLog(@"testes");
         return;
     }
     
@@ -198,11 +197,11 @@
 
 #pragma mark -
 
-- (void)captureImage:(zCaptureDetectedImageBlock)captureImgBlock
+- (void)startCaptureImage
 {
     _captureStart = YES;
     return;
-    
+    /*
     AVCaptureConnection *videoConnection = nil;
     for (AVCaptureConnection *connection in self.cameraMgr.imageOutput.connections)
     {
@@ -226,26 +225,16 @@
         NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
         CIImage *enhancedImage = [CIImage imageWithData:imageData];
         enhancedImage = [zRectangleDetectHelper imageFilteredUsingContrastOnImage:enhancedImage];
-        // 判断边缘识别度阈值, 再对拍照后的进行边缘识别
-        CIRectangleFeature *rectangleFeature;
-        if ([self isImageDetectionConfidenceEnough])
-        {
-            // 获取边缘识别最大矩形
-            rectangleFeature = [zRectangleDetectHelper biggestRectangleFeatureInFeatures:[self.rectangleDetector featuresInImage:enhancedImage]];
-            if (rectangleFeature)
-            {
-                if (captureImgBlock) {
-                    
-                    // 获取拍照图片
-                    UIImage *resultImg1 = [zRectangleDetectHelper perspectiveImageFromSampleBuffer:imageSampleBuffer withFeature:rectangleFeature];
-                    
-                    UIImage *resultImg2 = [zRectangleDetectHelper otherPerspectiveImageFromSampleBuffer:imageSampleBuffer withFeature:rectangleFeature];
-                    
-                    captureImgBlock(resultImg1);
-                }
+        // 获取边缘识别最大矩形
+        CIRectangleFeature *rectangleFeature = [zRectangleDetectHelper biggestRectangleFeatureInFeatures:[self.rectangleDetector featuresInImage:enhancedImage]];
+        if (rectangleFeature) {
+            if (self.scanRectangleCompleteBlock) {
+                // 获取拍照图片
+                UIImage *resultImg = [zRectangleDetectHelper perspectiveImageFromSampleBuffer:imageSampleBuffer withFeature:rectangleFeature];
+                self.scanRectangleCompleteBlock(resultImg, rectangleFeature);
             }
         }
-    }];
+    }];*/
 }
 
 @end

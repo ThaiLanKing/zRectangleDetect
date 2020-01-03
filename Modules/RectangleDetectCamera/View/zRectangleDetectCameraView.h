@@ -10,8 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^zCaptureDetectedImageBlock)(UIImage *detectedImg);
-
 typedef void(^zScanRectangleCompleteBlock)(UIImage *srcImg, CIRectangleFeature *rectFeature);
 
 @interface zRectangleDetectCameraView : zJamBoCameraView
@@ -22,7 +20,7 @@ typedef void(^zScanRectangleCompleteBlock)(UIImage *srcImg, CIRectangleFeature *
 
 - (void)stop;
 
-- (void)captureImage:(zCaptureDetectedImageBlock)captureImgBlock;
+- (void)startCaptureImage;
 
 @end
 

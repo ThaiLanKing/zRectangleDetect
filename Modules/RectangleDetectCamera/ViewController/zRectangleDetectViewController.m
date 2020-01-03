@@ -87,9 +87,7 @@
         @weakify(self);
         [_rectangleCameraView.takePhotoBtn addActionBlock:^(UIButton *sender) {
             @strongify(self);
-            [self.rectangleCameraView captureImage:^(UIImage * _Nonnull detectedImg) {
-                
-            }];
+            [self.rectangleCameraView startCaptureImage];
         }];
         _rectangleCameraView.scanRectangleCompleteBlock = ^(UIImage * _Nonnull srcImg, CIRectangleFeature * _Nonnull rectFeature) {
             @strongify(self);

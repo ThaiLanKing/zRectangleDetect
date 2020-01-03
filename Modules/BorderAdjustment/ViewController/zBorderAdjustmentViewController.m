@@ -48,8 +48,33 @@
 {
     [super viewDidLayoutSubviews];
     
-    zQuadrilateral *CIQuad = [zQuadrilateral qudrilateralFromRectangleFeature:self.scannedRectFeature];
-    self.borderAdjustmentView.rectUIQuad = [zRectangleDetectHelper UIQuadFromCIQuad:CIQuad forImage:self.srcImg inImageView:self.srcImageView];
+    zQuadrilateral *resultQuad;
+    if (self.scannedRectFeature) {
+        zQuadrilateral *CIQuad = [zQuadrilateral qudrilateralFromRectangleFeature:self.scannedRectFeature];
+        resultQuad = [zRectangleDetectHelper UIQuadFromCIQuad:CIQuad forImage:self.srcImg inImageView:self.srcImageView];
+    }
+    else {
+        resultQuad = [self defaultQuad];
+    }
+    self.borderAdjustmentView.rectUIQuad = resultQuad;
+}
+
+- (zQuadrilateral *)defaultQuad
+{
+    CGSize viewSize = self.view.bounds.size;
+    CGFloat defaultQuadWidth = viewSize.width * 2/3.0f;
+    CGFloat defaultQuadHeight = defaultQuadWidth * 3/4.0f;
+    CGPoint centerPoint = self.view.center;
+    CGFloat xOffset = defaultQuadWidth/2.0f;
+    CGFloat yOffset = defaultQuadHeight/2.0f;
+    
+    zQuadrilateral *resultQuad = [zQuadrilateral new];
+    resultQuad.topLeft = CGPointMake(centerPoint.x - xOffset, centerPoint.y - yOffset);
+    resultQuad.topRight = CGPointMake(centerPoint.x + xOffset, centerPoint.y - yOffset);
+    resultQuad.bottomLeft = CGPointMake(centerPoint.x - xOffset, centerPoint.y + yOffset);
+    resultQuad.bottomRight = CGPointMake(centerPoint.x + xOffset, centerPoint.y + yOffset);
+    
+    return resultQuad;
 }
 
 #pragma mark -

@@ -65,7 +65,7 @@
 }
 
 #pragma mark -
-
+/** 坐标系切换*/
 + (CGAffineTransform)coordinateTransformForImgSized:(CGSize)imgSize
 {
     CGAffineTransform transform = CGAffineTransformMakeScale(1.0f, -1.0f);

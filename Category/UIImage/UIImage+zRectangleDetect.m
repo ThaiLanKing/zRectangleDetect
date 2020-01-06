@@ -27,76 +27,54 @@
 
 #pragma mark - 矩形边框矫正（有旋转方向的图片）
 
-- (CGFloat)zRotateAngleFromCIToUI
-{
-    CGFloat r;
-    switch (self.imageOrientation) {
-        case UIImageOrientationUp:
-            r = 0;
-            break;
-        case UIImageOrientationDown:
-            r = -1.0f;
-            break;
-        case UIImageOrientationLeft:
-            r = 0.5;
-            break;
-        case UIImageOrientationRight:
-            r = -0.5;
-            break;
-            
-        default:
-            r = 0;
-            break;
-    }
-    
-    return M_PI*r;
-}
-
-- (CGAffineTransform)zRotateTransformWithAngle:(CGFloat)rotateAngle
-{
-    CIImage *srcCIImage = [UIImage zCIImageFromUIImage:self];
-    CGFloat imgWidth = srcCIImage.extent.size.width;
-    CGFloat imgHeight = srcCIImage.extent.size.height;
-    
-    CGFloat cx = imgWidth/2.0f;
-    CGFloat cy = imgHeight/2.0f;
-    
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    transform = CGAffineTransformTranslate(transform, cx, cy);
-    transform = CGAffineTransformRotate(transform, rotateAngle);
-    transform = CGAffineTransformTranslate(transform, -cx, -cy);
-    
-    return transform;
-}
-
-- (CGAffineTransform)zCenterAlignTransformFromSize:(CGSize)srcSize
-                                            toSize:(CGSize)dstSize
-{
-    CGFloat tx = (dstSize.width - srcSize.width)/2.0f;
-    CGFloat ty = (dstSize.height - srcSize.height)/2.0f;
-    
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(tx, ty);
-    return transform;
-}
-
 /**
  * 将有旋转的图片调整到up方向
  * 从CI坐标系转换到UI坐标系
  */
 - (CGAffineTransform)zCIOrientationCorrectTransform
 {
+    //旋转角度
+    CGFloat rotateAngle = 0.0f;
+    //坐标系调整（以原点为中心旋转后，坐标象限有变化，需要重新调整）
+    CGSize coordinateTransformSize = CGSizeMake(0.0f, 0.0f);
+    
+    //镜像图片的处理可参考fixOrientation的代码
+    switch (self.imageOrientation) {
+        case UIImageOrientationUp:
+        {
+            rotateAngle = 0.0f;
+        }
+            break;
+        case UIImageOrientationDown:
+        {
+            rotateAngle = M_PI;
+            coordinateTransformSize = CGSizeMake(self.size.width, self.size.height);
+        }
+            break;
+        case UIImageOrientationLeft:
+        {
+            rotateAngle = M_PI_2;
+            coordinateTransformSize = CGSizeMake(self.size.width, 0);
+        }
+            break;
+        case UIImageOrientationRight:
+        {
+            rotateAngle = -M_PI_2;
+            coordinateTransformSize = CGSizeMake(0, self.size.height);
+        }
+            break;
+            
+        default:
+            break;
+    }
+        
     CGAffineTransform rotateTransform = ({
-        CGFloat rotateAngle = [self zRotateAngleFromCIToUI];
-        CGAffineTransform transform = [self zRotateTransformWithAngle:rotateAngle];
+        CGAffineTransform transform = CGAffineTransformMakeRotation(rotateAngle);
         transform;
     });
     
     CGAffineTransform translateTransform = ({
-        CIImage *srcCIImage = [UIImage zCIImageFromUIImage:self];
-        CGSize CIImgSize = srcCIImage.extent.size;
-        CGSize imgSize = self.size;
-        
-        CGAffineTransform transform = [self zCenterAlignTransformFromSize:CIImgSize toSize:imgSize];
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(coordinateTransformSize.width, coordinateTransformSize.height);
         transform;
     });
     
@@ -110,22 +88,7 @@
  */
 - (CGAffineTransform)zUIOrientationCorrectTransform
 {
-    CGAffineTransform rotateTransform = ({
-        CGFloat rotateAngle = -[self zRotateAngleFromCIToUI];
-        CGAffineTransform transform = [self zRotateTransformWithAngle:rotateAngle];
-        transform;
-    });
-    
-    CGAffineTransform translateTransform = ({
-        CIImage *srcCIImage = [UIImage zCIImageFromUIImage:self];
-        CGSize CIImgSize = srcCIImage.extent.size;
-        CGSize imgSize = self.size;
-        
-        CGAffineTransform transform = [self zCenterAlignTransformFromSize:imgSize toSize:CIImgSize];
-        transform;
-    });
-    
-    CGAffineTransform result = CGAffineTransformConcat(translateTransform, rotateTransform);
+    CGAffineTransform result = CGAffineTransformInvert([self zCIOrientationCorrectTransform]);
     return result;
 }
 

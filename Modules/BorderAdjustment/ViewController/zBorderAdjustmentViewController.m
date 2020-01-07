@@ -49,9 +49,8 @@
     [super viewDidLayoutSubviews];
     
     zQuadrilateral *resultQuad;
-    if (self.scannedRectFeature) {
-        zQuadrilateral *CIQuad = [zQuadrilateral qudrilateralFromRectangleFeature:self.scannedRectFeature];
-        resultQuad = [zRectangleDetectHelper UIQuadFromCIQuad:CIQuad forImage:self.srcImg inImageView:self.srcImageView];
+    if (self.CIQuad) {
+        resultQuad = [zRectangleDetectHelper UIQuadFromCIQuad:self.CIQuad forImage:self.srcImg inImageView:self.srcImageView];
     }
     else {
         resultQuad = [self defaultQuad];

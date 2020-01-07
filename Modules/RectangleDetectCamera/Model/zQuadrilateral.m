@@ -39,6 +39,35 @@
     return quad;
 }
 
++ (zQuadrilateral *)biggestQuadrilateralInQuads:(NSArray<zQuadrilateral *> *)quads
+{
+    if ([quads count] == 0) {
+        return nil;
+    }
+    
+    float halfPerimiterValue = 0;
+    zQuadrilateral *biggestRectangle;
+    
+    for (zQuadrilateral *rect in quads) {
+        CGPoint p1 = rect.topLeft;
+        CGPoint p2 = rect.topRight;
+        CGFloat width = hypotf(p1.x - p2.x, p1.y - p2.y);
+        
+        CGPoint p3 = rect.topLeft;
+        CGPoint p4 = rect.bottomLeft;
+        CGFloat height = hypotf(p3.x - p4.x, p3.y - p4.y);
+        
+        CGFloat currentHalfPerimiterValue = height + width;
+        
+        if (halfPerimiterValue < currentHalfPerimiterValue) {
+            halfPerimiterValue = currentHalfPerimiterValue;
+            biggestRectangle = rect;
+        }
+    }
+    
+    return biggestRectangle;
+}
+
 #pragma mark -
 
 - (void)applyTransform:(CGAffineTransform)transform

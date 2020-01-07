@@ -93,7 +93,7 @@
             @strongify(self);
             zBorderAdjustmentViewController *dstVC = [[zBorderAdjustmentViewController alloc] init];
             dstVC.srcImg = srcImg;
-            dstVC.scannedRectFeature = rectFeature;
+            dstVC.CIQuad = [zQuadrilateral qudrilateralFromRectangleFeature:rectFeature];
             [self.navigationController pushViewController:dstVC animated:YES];
         };
     }

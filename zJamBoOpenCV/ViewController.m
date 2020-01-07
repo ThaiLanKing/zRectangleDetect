@@ -19,18 +19,16 @@
  */
 
 #import "ViewController.h"
+#import "ViewController+VisionDetect.h"
+#import "ViewController+VisionKitDetect.h"
 #import "zJBCameraViewController.h"
 #import "zRectangleDetectViewController.h"
 #import "zBorderAdjustmentViewController.h"
 #import "zRectangleDetectHelper.h"
 #import "zShowScanResultViewController.h"
 
-@import VisionKit;
-@import Vision;
-
 @interface ViewController ()<UINavigationControllerDelegate,
-                             UIImagePickerControllerDelegate,
-                             VNDocumentCameraViewControllerDelegate>
+                             UIImagePickerControllerDelegate>
 {
     BOOL _useOpenCV;
 }
@@ -156,23 +154,6 @@
     [self presentViewController:sheetVC animated:YES completion:nil];
 }
 
-- (void)VNDocumentScan
-{
-    if (@available(iOS 13.0, *)) {
-        VNDocumentCameraViewController *scanVC = [[VNDocumentCameraViewController alloc] init];
-        scanVC.delegate = self;
-        [self presentViewController:scanVC animated:YES completion:nil];
-    }
-    else {
-        NSLog(@"系统版本低于iOS13，不可使用");
-        
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:@"系统版本低于iOS13，不可用！" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleCancel handler:nil];
-        [alertVC addAction:cancelAction];
-        [self presentViewController:alertVC animated:YES completion:nil];
-    }
-}
-
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info
@@ -193,7 +174,16 @@
             }];
         }
         else {
-            //先调整原图的orientation，然后再识别矩形
+            if (@available(iOS 11.0, *)) {
+                //VNDetectRectanglesRequest对比CIRectangleDetector各有优缺点
+                //有些图片VNDetectRectanglesRequest识别的边缘更精准
+                //但有些图片CIRectangleDetector可以检测出来，VN检测不出来
+                [picker dismissViewControllerAnimated:YES completion:^{
+                    [self detectRectInImage:image];
+                }];
+                return;
+            }
+            
             CIImage *srcCIImage = [UIImage zCIImageFromUIImage:image];
             srcCIImage = [zRectangleDetectHelper imageFilteredUsingContrastOnImage:srcCIImage];
             
@@ -204,16 +194,11 @@
             [picker dismissViewControllerAnimated:YES completion:^{
                 zBorderAdjustmentViewController *dstVC = [[zBorderAdjustmentViewController alloc] init];
                 dstVC.srcImg = image;
-                dstVC.scannedRectFeature = borderDetectLastRectangleFeature;
+                dstVC.CIQuad = [zQuadrilateral qudrilateralFromRectangleFeature:borderDetectLastRectangleFeature];
                 [dstVC setImageShowMode:kImageShowModeScaleAspectFit];
                 [self.navigationController pushViewController:dstVC animated:YES];
             }];
-            
         }
-//        UIImage *r1 = [zJBCameraViewController testCropImg:image];
-//        UIImage *r2 = [self testCropImg:image];
-        
-        NSLog(@"process end!");
     }
 }
 
@@ -230,53 +215,6 @@
     return [CIDetector detectorOfType:CIDetectorTypeRectangle
     context:nil
     options:@{CIDetectorAccuracy : CIDetectorAccuracyHigh}];
-}
-
-//@available(iOS 13.0, *)
-#pragma mark - VNDocumentCameraViewControllerDelegate
-
-- (void)documentCameraViewController:(VNDocumentCameraViewController *)controller didFinishWithScan:(VNDocumentCameraScan *)scan
-{
-    for (int i = 0; i < scan.pageCount; ++i) {
-        UIImage *img = [scan imageOfPageAtIndex:i];
-        NSLog(@"scan img : %d, title : %@", i,  scan.title);
-        
-        [self recognizeTextInImage:img];
-    }
-}
-
-- (void)documentCameraViewControllerDidCancel:(VNDocumentCameraViewController *)controller
-{
-    NSLog(@"scan cancel");
-    [controller dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)documentCameraViewController:(VNDocumentCameraViewController *)controller didFailWithError:(NSError *)error
-{
-    NSLog(@"scan error : %@", error.description);
-}
-
-- (void)recognizeTextInImage:(UIImage *)srcImg
-{
-    VNRecognizeTextRequest *request = [[VNRecognizeTextRequest alloc] initWithCompletionHandler:^(VNRequest * _Nonnull request, NSError * _Nullable error) {
-        NSLog(@"request : %d", request.results.count);
-        for (VNRecognizedTextObservation *obj in request.results) {
-            NSLog(@"reg text : %@", [obj performSelector:@selector(text)]);
-        }
-    }];
-    request.minimumTextHeight = 0.03125;
-    request.customWords = @[@"张尧华", @"研发"];
-    request.recognitionLevel = VNRequestTextRecognitionLevelAccurate;
-    request.recognitionLanguages = @[@"zh-CN", @"en-US"];
-    request.usesLanguageCorrection = YES;
-    
-    CGImageRef cgImg = srcImg.CGImage;
-    VNImageRequestHandler *handler = [[VNImageRequestHandler alloc] initWithCGImage:cgImg options:nil];
-    NSError *error;
-    [handler performRequests:@[request] error:&error];
-    if (error) {
-        NSLog(@"recognize error : %@", error.description);
-    }
 }
 
 @end

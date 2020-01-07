@@ -23,6 +23,8 @@
 		DAD3F5E923B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5E823B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m */; };
 		DAD3F5F523BB2995007F1A41 /* UIImage+zRectangleDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5F423BB2995007F1A41 /* UIImage+zRectangleDetect.m */; };
 		DAD3F5FC23BDD848007F1A41 /* zBorderTransformParam.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F5FB23BDD848007F1A41 /* zBorderTransformParam.m */; };
+		DAD3F60123C42066007F1A41 /* ViewController+VisionDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F60023C42066007F1A41 /* ViewController+VisionDetect.m */; };
+		DAD3F60423C4326F007F1A41 /* ViewController+VisionKitDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3F60323C4326F007F1A41 /* ViewController+VisionKitDetect.m */; };
 		DAF0BCF723B09740007AD6AA /* zRectangleBorderUIParam.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BCF623B09740007AD6AA /* zRectangleBorderUIParam.m */; };
 		DAF0BCFA23B0B51B007AD6AA /* zQuadrilateral.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BCF923B0B51B007AD6AA /* zQuadrilateral.m */; };
 		DAF0BD0323B20B86007AD6AA /* zBorderAdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF0BD0223B20B86007AD6AA /* zBorderAdjustmentViewController.m */; };
@@ -89,6 +91,10 @@
 		DAD3F5F423BB2995007F1A41 /* UIImage+zRectangleDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+zRectangleDetect.m"; sourceTree = "<group>"; };
 		DAD3F5FA23BDD848007F1A41 /* zBorderTransformParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zBorderTransformParam.h; sourceTree = "<group>"; };
 		DAD3F5FB23BDD848007F1A41 /* zBorderTransformParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zBorderTransformParam.m; sourceTree = "<group>"; };
+		DAD3F5FF23C42066007F1A41 /* ViewController+VisionDetect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+VisionDetect.h"; sourceTree = "<group>"; };
+		DAD3F60023C42066007F1A41 /* ViewController+VisionDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+VisionDetect.m"; sourceTree = "<group>"; };
+		DAD3F60223C4326F007F1A41 /* ViewController+VisionKitDetect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController+VisionKitDetect.h"; sourceTree = "<group>"; };
+		DAD3F60323C4326F007F1A41 /* ViewController+VisionKitDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController+VisionKitDetect.m"; sourceTree = "<group>"; };
 		DAF0BCF523B09740007AD6AA /* zRectangleBorderUIParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zRectangleBorderUIParam.h; sourceTree = "<group>"; };
 		DAF0BCF623B09740007AD6AA /* zRectangleBorderUIParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zRectangleBorderUIParam.m; sourceTree = "<group>"; };
 		DAF0BCF823B0B51B007AD6AA /* zQuadrilateral.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zQuadrilateral.h; sourceTree = "<group>"; };
@@ -292,6 +298,10 @@
 				DA761399233B5EB20057C826 /* main.m */,
 				DA7613BC233B6B400057C826 /* zJamBoOpenCV.pch */,
 				DAF952212344DB6C007CAD9C /* LaunchScreen.storyboard */,
+				DAD3F5FF23C42066007F1A41 /* ViewController+VisionDetect.h */,
+				DAD3F60023C42066007F1A41 /* ViewController+VisionDetect.m */,
+				DAD3F60223C4326F007F1A41 /* ViewController+VisionKitDetect.h */,
+				DAD3F60323C4326F007F1A41 /* ViewController+VisionKitDetect.m */,
 			);
 			path = zJamBoOpenCV;
 			sourceTree = "<group>";
@@ -650,6 +660,8 @@
 				DA4AA43823A383BE00C66A6A /* zShowScanResultViewController.m in Sources */,
 				DAF0BD0323B20B86007AD6AA /* zBorderAdjustmentViewController.m in Sources */,
 				DA76138F233B5EB00057C826 /* ViewController.m in Sources */,
+				DAD3F60123C42066007F1A41 /* ViewController+VisionDetect.m in Sources */,
+				DAD3F60423C4326F007F1A41 /* ViewController+VisionKitDetect.m in Sources */,
 				DA76139A233B5EB20057C826 /* main.m in Sources */,
 				DA4AA42A23A0853F00C66A6A /* zRectangleDetectCameraView.m in Sources */,
 				DAD3F5E923B33838007F1A41 /* zRectangleDetectView+ShowWithGLKView.m in Sources */,

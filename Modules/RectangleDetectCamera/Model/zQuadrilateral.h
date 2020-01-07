@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)qudrilateralFromRectangleFeature:(CIRectangleFeature *)rectFeature;
 
++ (zQuadrilateral *)biggestQuadrilateralInQuads:(NSArray<zQuadrilateral *> *)quads;
+
 - (void)applyTransform:(CGAffineTransform)transform;
 - (void)applyTransforms:(NSArray<NSValue *> *)transforms;
 

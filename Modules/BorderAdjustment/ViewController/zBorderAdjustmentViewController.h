@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface zBorderAdjustmentViewController : UIViewController
 
 @property (nonatomic, strong) UIImage *srcImg;
-@property (nonatomic, strong) CIRectangleFeature *scannedRectFeature;
+@property (nonatomic, strong) zQuadrilateral *CIQuad;
 
 //实时检测的影像是AsepectFill，相册影像是AspectFit
 - (void)setImageShowMode:(kImageShowMode)showMode;

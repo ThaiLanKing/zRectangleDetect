@@ -213,8 +213,8 @@
 - (CIDetector *)rectangleDetector
 {
     return [CIDetector detectorOfType:CIDetectorTypeRectangle
-    context:nil
-    options:@{CIDetectorAccuracy : CIDetectorAccuracyHigh}];
+                              context:nil
+                              options:@{CIDetectorAccuracy : CIDetectorAccuracyHigh}];
 }
 
 @end

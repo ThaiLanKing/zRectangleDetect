@@ -37,6 +37,9 @@
             
             if (biggestQuad) {
                 //Vision的坐标系是（0-1），需要乘以宽高，才是实际坐标
+                //这里用CIImage的extent取size，而不是直接用UIImage的size是因为图片
+                //方向不是up/down的时候，两个size的值其实是不一样的，而识别是基于CIImage的，
+                //所以用CIImage的size才是正确的
                 CIImage *srcCIImg = [UIImage zCIImageFromUIImage:srcImg];
                 CGAffineTransform scaleTransform = CGAffineTransformMakeScale(srcCIImg.extent.size.width, srcCIImg.extent.size.height);
                 [biggestQuad applyTransform:scaleTransform];
